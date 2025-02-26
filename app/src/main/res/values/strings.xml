@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Aquarium Tool Kit</string>
+    <string name="update_additive">Update Additive</string>
+    <string name="add_additive">Add Additive</string>
+</resources>
