@@ -1,9 +1,11 @@
 package il.co.amikashkash.aquariumtoolkit.data
 
+import android.os.Parcel
 import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.parcelize.Parceler
 import kotlinx.parcelize.Parcelize
 
 @Entity(tableName = "additives_table")
@@ -18,7 +20,29 @@ data class Additive(
     @ColumnInfo(name = "for_volume")
     val forVolumeDose:String="",
 
-): Parcelable
+): Parcelable {
+    constructor(parcel: Parcel) : this(
+        parcel.readLong(),
+        parcel.readString().toString(),
+        parcel.readString().toString(),
+        parcel.readString().toString()
+    ) {
+    }
+
+    companion object : Parceler<Additive> {
+
+        override fun Additive.write(parcel: Parcel, flags: Int) {
+            parcel.writeLong(additiveId)
+            parcel.writeString(name)
+            parcel.writeString(addingDose)
+            parcel.writeString(forVolumeDose)
+        }
+
+        override fun create(parcel: Parcel): Additive {
+            return Additive(parcel)
+        }
+    }
+}
 
 object DummyList{
     val additives = listOf(

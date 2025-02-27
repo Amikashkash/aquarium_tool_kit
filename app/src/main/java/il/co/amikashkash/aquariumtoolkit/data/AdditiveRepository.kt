@@ -6,6 +6,7 @@ class AdditiveRepository(private val additiveDao: AdditiveDao) {
 
     suspend fun addAdditive(additive: Additive) {
         additiveDao.addAdditive(additive)
+        //additiveDao.insert(additive)
     }
 
     fun getAdditives(): Flow<List<Additive>> = additiveDao.getAllAdditives()

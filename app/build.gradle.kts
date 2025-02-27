@@ -4,9 +4,10 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("com.google.devtools.ksp")
     id("kotlin-parcelize")
-    id("org.jetbrains.kotlin.kapt")
-
+//    id("org.jetbrains.kotlin.kapt")
+    
 
 }
 
@@ -39,19 +40,27 @@ android {
     }
     kotlinOptions {
         jvmTarget = "11"
+
     }
     buildFeatures {
         compose = true
     }
+    
 }
 
 dependencies {
 
+    val room_version = "2.6.1"
+    implementation("androidx.room:room-runtime:$room_version")
+    ksp("androidx.room:room-compiler:$room_version")
+    implementation("androidx.room:room-ktx:$room_version")
+
 
     implementation(libs.androidx.tv.material)
-    kapt("androidx.room:room-compiler:2.6.1")
-    implementation(libs.androidx.room.runtime)
-    implementation(libs.androidx.room.ktx)
+
+    //kapt(libs.androidx.room.compiler)
+    //implementation(libs.androidx.room.runtime)
+    //implementation(libs.androidx.room.ktx)
     
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -61,8 +70,8 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    implementation("androidx.navigation:navigation-compose:2.5.3")
-    implementation("androidx.compose.material:material:1.7.8")
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
