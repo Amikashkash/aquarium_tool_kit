@@ -64,9 +64,18 @@ fun SetupNavGraph(navController: NavHostController = rememberNavController(), ad
         composable(route = Screen.ADDITIVES.route) {
              AdditivesScreen(navController = navController, additiveViewModel = additiveViewModel)
         }
-        composable(route = Screen.ADD_ADDITIVE.route){
+        composable(route = Screen.ADD_ADDITIVE.route + "/{additiveId}",
+            arguments = listOf(navArgument(
+                "additiveId",){
+                type = NavType.LongType
+                defaultValue = 0L
+                nullable = false
+            }
+            )
+        ){entry ->
+            val additiveId = if(entry.arguments != null)  entry.arguments!!.getLong("additiveId") else 0L
             AddAdditivesScreen(
-                additiveId = 0L,
+                additiveId = additiveId,
                 additiveViewModel = viewModel(),
                 navController = navController
             )

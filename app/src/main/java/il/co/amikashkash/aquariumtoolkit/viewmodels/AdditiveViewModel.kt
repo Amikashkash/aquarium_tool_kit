@@ -17,11 +17,11 @@ class AdditiveViewModel(
 ) : ViewModel() {
 
     var additiveName by mutableStateOf("")
-        private set
+
     var dosagePerQuantity by mutableStateOf("")
-        private set
+
     var quantity by mutableStateOf("")
-        private set
+
 
     
 

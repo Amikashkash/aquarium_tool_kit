@@ -5,7 +5,6 @@ import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import kotlinx.parcelize.Parceler
 import kotlinx.parcelize.Parcelize
 
 @Entity(tableName = "additives_table")
@@ -20,29 +19,37 @@ data class Additive(
     @ColumnInfo(name = "for_volume")
     val forVolumeDose:String="",
 
-): Parcelable {
-    constructor(parcel: Parcel) : this(
-        parcel.readLong(),
-        parcel.readString().toString(),
-        parcel.readString().toString(),
-        parcel.readString().toString()
-    ) {
-    }
-
-    companion object : Parceler<Additive> {
-
-        override fun Additive.write(parcel: Parcel, flags: Int) {
-            parcel.writeLong(additiveId)
-            parcel.writeString(name)
-            parcel.writeString(addingDose)
-            parcel.writeString(forVolumeDose)
-        }
-
-        override fun create(parcel: Parcel): Additive {
-            return Additive(parcel)
-        }
-    }
-}
+): Parcelable
+//{
+//    constructor(parcel: Parcel) : this(
+//        parcel.readLong(),
+//        parcel.readString(),
+//        parcel.readString(),
+//        parcel.readString()
+//    ) {
+//    }
+//
+//    override fun writeToParcel(parcel: Parcel, flags: Int) {
+//        parcel.writeLong(additiveId)
+//        parcel.writeString(name)
+//        parcel.writeString(addingDose)
+//        parcel.writeString(forVolumeDose)
+//    }
+//
+//    override fun describeContents(): Int {
+//        return 0
+//    }
+//
+//    companion object CREATOR : Parcelable.Creator<Additive> {
+//        override fun createFromParcel(parcel: Parcel): Additive {
+//            return Additive(parcel)
+//        }
+//
+//        override fun newArray(size: Int): Array<Additive?> {
+//            return arrayOfNulls(size)
+//        }
+//    }
+//}
 
 object DummyList{
     val additives = listOf(

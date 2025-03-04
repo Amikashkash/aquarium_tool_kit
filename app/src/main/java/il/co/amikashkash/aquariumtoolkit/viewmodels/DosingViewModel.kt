@@ -36,7 +36,7 @@ class DosingViewModel: ViewModel() {
         val aqv = aquaVolume.value.toDoubleOrNull() ?: 0.0
         val md = materialDose.value.toDoubleOrNull() ?: 0.0
         val pqd = perQuantityDose.value.toDoubleOrNull() ?: 0.0
-        dosage.doubleValue = (aqv / pqd) * md
+        dosage.doubleValue = if (pqd != 0.0) (aqv / pqd) * md else 0.0
     }
 
     fun setAquaVolume(newAquaVolume: String) {

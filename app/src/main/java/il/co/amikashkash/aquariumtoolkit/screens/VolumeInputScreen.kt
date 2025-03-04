@@ -60,6 +60,7 @@ fun VolumeInputScreen(
                 .padding(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+
             item{
                 Image(
                     painter = painterResource(id = R.drawable.aqua_calc),
