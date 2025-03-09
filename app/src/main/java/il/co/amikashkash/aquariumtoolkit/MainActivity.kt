@@ -30,7 +30,7 @@ class MainActivity : ComponentActivity() {
                     SetupNavGraph(
                         navController = navController,
                         additiveViewModel = AdditiveViewModel(),
-                        
+                        dosingViewModel = DosingViewModel(),
                     )
                 }
             }

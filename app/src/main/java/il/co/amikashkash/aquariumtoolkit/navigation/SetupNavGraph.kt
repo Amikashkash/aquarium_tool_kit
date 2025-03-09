@@ -25,25 +25,31 @@ enum class Screen(
     ADDITIVES("additivesscreen"),
 
     VOLUME_INPUT("volumeinputscreen"),
-    DOSAGE_AQUA("dosageaquascreen?volume={volume}", listOf(
+    DOSAGE_AQUA("dosageaquascreen?volume={volume}&additiveId={additiveId}", listOf(
         navArgument("volume") {
             type = NavType.StringType
             nullable = true
             defaultValue = ""
+        },
+        navArgument("additiveId") {
+            type = NavType.LongType
+            nullable = false
+            defaultValue = 0L
         }
     )),
     ADD_ADDITIVE("addadditivescreen");
-
-
 
     fun createDosageAquaRoute(volume: String): String {
         return "dosageaquascreen?volume=$volume"
     }
 
+    fun createDosageAquaRouteWithAdditive(additiveId: Long): String {
+        return "dosageaquascreen?volume=&additiveId=$additiveId"
+    }
 }
 
 @Composable
-fun SetupNavGraph(navController: NavHostController = rememberNavController(), additiveViewModel: AdditiveViewModel) {
+fun SetupNavGraph(navController: NavHostController = rememberNavController(), additiveViewModel: AdditiveViewModel, dosingViewModel: DosingViewModel) {
     NavHost(
         navController = navController,
         startDestination = Screen.HOME.route
@@ -59,7 +65,14 @@ fun SetupNavGraph(navController: NavHostController = rememberNavController(), ad
             arguments = Screen.DOSAGE_AQUA.arguments
         ) {
             val volume = it.arguments?.getString("volume")
-            DosageAquaScreen(navController = navController, volume = volume ?: "")
+            val additiveId = it.arguments?.getLong("additiveId")
+            DosageAquaScreen(
+                navController = navController,
+                volume = volume ?: "",
+                additiveId = additiveId ?: 0L,
+                additiveViewModel = additiveViewModel,
+                dosingViewModel = dosingViewModel
+            )
         }
         composable(route = Screen.ADDITIVES.route) {
              AdditivesScreen(navController = navController, additiveViewModel = additiveViewModel)
@@ -80,9 +93,5 @@ fun SetupNavGraph(navController: NavHostController = rememberNavController(), ad
                 navController = navController
             )
         }
-
-
-
-
     }
 }

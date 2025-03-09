@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 
 class DosingViewModel: ViewModel() {
 
-
     var aquaVolume = mutableStateOf("")
         private set
     var materialDose = mutableStateOf("")
@@ -15,20 +14,18 @@ class DosingViewModel: ViewModel() {
         private set
     var dosage = mutableDoubleStateOf(0.0)
 
-
-
     fun onAquaVolumeChange(newAquaVolume: String) {
-        if(newAquaVolume.toIntOrNull() != null){
+        if(newAquaVolume.toDoubleOrNull() != null){
             aquaVolume.value = newAquaVolume
         }
         }
     fun onMaterialDoseChange(newMaterialDose: String) {
-        if(newMaterialDose.toIntOrNull() != null){
+        if(newMaterialDose.toDoubleOrNull() != null){
             materialDose.value = newMaterialDose
         }
     }
     fun onPerQuantityDoseChange(newPerQuantityDose: String) {
-        if(newPerQuantityDose.toIntOrNull() != null){
+        if(newPerQuantityDose.toDoubleOrNull() != null){
             perQuantityDose.value = newPerQuantityDose
         }
     }
@@ -41,6 +38,12 @@ class DosingViewModel: ViewModel() {
 
     fun setAquaVolume(newAquaVolume: String) {
         aquaVolume.value = newAquaVolume
+    }
+    fun resetState() {
+        aquaVolume.value = ""
+        materialDose.value = ""
+        perQuantityDose.value = ""
+        dosage.doubleValue = 0.0
     }
 
 

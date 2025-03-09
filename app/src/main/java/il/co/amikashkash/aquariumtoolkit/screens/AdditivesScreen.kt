@@ -89,10 +89,17 @@ fun AdditivesScreen(
                         }
                     },
                     dismissContent = {
-                        AdditiveItem(additive = additive) {
-                            val id = additive.additiveId
-                            navController.navigate(Screen.ADD_ADDITIVE.route + "/$id")
-                        }
+                        AdditiveItem(
+                            additive = additive,
+                            onUpdateClick = {
+                                val additiveId = additive.additiveId
+                                navController.navigate(Screen.ADD_ADDITIVE.route + "/$additiveId")
+                            },
+                            onFillDosageClick = {
+                                val additiveId = additive.additiveId
+                                navController.navigate(Screen.DOSAGE_AQUA.createDosageAquaRouteWithAdditive(additiveId))
+                            }
+                        )
                     },
                     directions = setOf(DismissDirection.EndToStart)
                 )
