@@ -19,19 +19,27 @@ class VolumeViewModel: ViewModel(){
     // setters
     fun onLengthChange(newLength: String) {
         if(newLength.toIntOrNull() != null)
-        { lengthState.value = newLength }
+        { lengthState.value = newLength
+        } else{
+            lengthState.value = ""
+        }
     }
 
     fun onWidthChange(newWidth: String) {
         if(newWidth.toIntOrNull() != null ) {
             widthState.value = newWidth
+        } else{
+            widthState.value = ""
         }
 
     }
 
     fun onHeightChange(newHeight: String) {
         if (newHeight.toIntOrNull() != null)
-        { heightState.value = newHeight }
+        { heightState.value = newHeight
+        }else{
+            heightState.value = ""
+        }
     }
 
     fun calculateVolume() {

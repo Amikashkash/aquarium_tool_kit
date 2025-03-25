@@ -26,6 +26,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
@@ -84,7 +85,7 @@ fun DosageAquaScreen(
         }
 
         Scaffold(
-            topBar = { AppBar(navController, title = "Dosage Calculator") },
+            topBar = { AppBar(navController, title = stringResource(R.string.dosage_calculator)) },
             containerColor = MaterialTheme.colorScheme.background
         ) { innerPadding ->
             LazyColumn(
@@ -109,7 +110,7 @@ fun DosageAquaScreen(
                     OutlinedTextField(
                         value = aquaVolume,
                         onValueChange = dosingViewModel::onAquaVolumeChange,
-                        label = { Text("Aquarium Volume (litters)") },
+                        label = { Text(stringResource(R.string.aquarium_volume_litters)) },
                         modifier = Modifier.fillMaxWidth(),
                         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal)
                     )
@@ -119,7 +120,7 @@ fun DosageAquaScreen(
                     OutlinedTextField(
                         value = materialDose,
                         onValueChange = dosingViewModel::onMaterialDoseChange,
-                        label = { Text("dosage by instruction (ml)") },
+                        label = { Text(stringResource(R.string.dosage_by_instruction_ml)) },
                         modifier = Modifier.fillMaxWidth(),
                         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal)
                     )
@@ -129,7 +130,7 @@ fun DosageAquaScreen(
                     OutlinedTextField(
                         value = perQuantityDose,
                         onValueChange = dosingViewModel::onPerQuantityDoseChange,
-                        label = { Text("dosage per quantity (litters)") },
+                        label = { Text(stringResource(R.string.dosage_per_quantity_litters)) },
                         modifier = Modifier.fillMaxWidth(),
                         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal)
                     )
@@ -141,13 +142,13 @@ fun DosageAquaScreen(
                             dosingViewModel.calculateDosage()
                             focusManager.clearFocus()
                         },
-                        text = "Calculate Dosage",
+                        text = stringResource(R.string.calculate_dosage),
                     )
                 }
                 item { Spacer(modifier = Modifier.height(16.dp)) }
                 item {
                     Text(
-                        "Dosage: ${String.format("%.2f", dosage)} Milliliter",
+                        stringResource(R.string.dosage_milliliter, String.format("%.2f", dosage)),
                         fontSize = 24.sp,
                         fontWeight = FontWeight.Bold,
                         modifier = Modifier.padding(8.dp)
@@ -156,7 +157,7 @@ fun DosageAquaScreen(
                 }
                 item {
                     Text(
-                        "of solution for this aquarium",
+                        stringResource(R.string.of_solution_for_this_aquarium),
                         fontSize = 24.sp,
                         fontWeight = FontWeight.Bold,
                         modifier = Modifier.padding(8.dp)

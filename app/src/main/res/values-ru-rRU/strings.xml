@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Инструментарий Аквариумиста</string>
+    <string name="update_additive">Обновить Добавку</string>
+    <string name="add_additive">Добавить Добавку</string>
+    <string name="aquarium_calculation_image">Изображение расчета аквариума</string>
+    <string name="name">Название</string>
+    <string name="dosage_per_quantity">Дозировка на Единицу</string>
+    <string name="quantity">Количество</string>
+    <string name="additives">Добавки</string>
+    <string name="add">Добавить</string>
+    <string name="dosage_calculator">Калькулятор Дозировки</string>
+    <string name="aquarium_volume_litters">Объем Аквариума (литры)</string>
+    <string name="dosage_by_instruction_ml">дозировка по инструкции (мл)</string>
+    <string name="dosage_per_quantity_litters">дозировка на единицу (литры)</string>
+    <string name="calculate_dosage">Рассчитать Дозировку</string>
+    <string name="dosage_milliliter">Дозировка: %1$s Миллилитр</string>
+    <string name="of_solution_for_this_aquarium">раствора для этого аквариума</string>
+    <string name="aquarium_tool_kit">Инструментарий Аквариумиста</string>
+    <string name="volume_calculation">Расчет Объема</string>
+    <string name="additives_list">Список Добавок</string>
+    <string name="volume_calculator">Калькулятор Объема</string>
+    <string name="length_cm">Длина (см)</string>
+    <string name="width_cm">Ширина (см)</string>
+    <string name="height_cm">Высота (см)</string>
+    <string name="calculate_volume">Рассчитать Объем</string>
+    <string name="volume_liters">объем: %1$s литров</string>
+    <string name="additive_name">"Название Добавки: "</string>
+    <string name="additive_dose">"Доза Добавки:  "</string>
+    <string name="dose_for_volume">"Доза для объема:  "</string>
+</resources>

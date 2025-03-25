@@ -2,4 +2,36 @@
     <string name="app_name">Aquarium Tool Kit</string>
     <string name="update_additive">Update Additive</string>
     <string name="add_additive">Add Additive</string>
+    <string name="aquarium_calculation_image">Aquarium calculation image</string>
+    <string name="name">Name</string>
+    <string name="dosage_per_quantity">Dosage Per Quantity</string>
+    <string name="quantity">Quantity</string>
+    <string name="additives">Additives</string>
+    <string name="add">Add</string>
+    <string name="dosage_calculator">Dosage Calculator</string>
+    <string name="aquarium_volume_litters">Aquarium Volume (litters)</string>
+    <string name="dosage_by_instruction_ml">dosage by instruction (ml)</string>
+    <string name="dosage_per_quantity_litters">dosage per quantity (litters)</string>
+    <string name="calculate_dosage">Calculate Dosage</string>
+    <string name="dosage_milliliter">Dosage: %1$s Milliliter</string>
+    <string name="of_solution_for_this_aquarium">of solution for this aquarium</string>
+    <string name="aquarium_tool_kit">Aquarium Tool Kit</string>
+    <string name="volume_calculation">Volume Calculation</string>
+    <string name="additives_list">Additives List</string>
+    <string name="volume_calculator">Volume Calculator</string>
+    <string name="length_cm">Length (cm)</string>
+    <string name="width_cm">Width (cm)</string>
+    <string name="height_cm">Height (cm)</string>
+    <string name="calculate_volume">Calculate Volume</string>
+    <string name="volume_liters">volume: %1$s liters</string>
+    <string name="additive_name">"Additive Name: "</string>
+    <string name="additive_dose">"Additive Dose:  "</string>
+    <string name="dose_for_volume">"Dose for volume:  "</string>
 </resources>
+
+
+
+
+
+
+

@@ -17,16 +17,22 @@ class DosingViewModel: ViewModel() {
     fun onAquaVolumeChange(newAquaVolume: String) {
         if(newAquaVolume.toDoubleOrNull() != null){
             aquaVolume.value = newAquaVolume
+        }else{
+            aquaVolume.value = ""
         }
         }
     fun onMaterialDoseChange(newMaterialDose: String) {
         if(newMaterialDose.toDoubleOrNull() != null){
             materialDose.value = newMaterialDose
+        }else{
+            materialDose.value = ""
         }
     }
     fun onPerQuantityDoseChange(newPerQuantityDose: String) {
         if(newPerQuantityDose.toDoubleOrNull() != null){
             perQuantityDose.value = newPerQuantityDose
+        }else{
+            perQuantityDose.value = ""
         }
     }
     fun calculateDosage() {

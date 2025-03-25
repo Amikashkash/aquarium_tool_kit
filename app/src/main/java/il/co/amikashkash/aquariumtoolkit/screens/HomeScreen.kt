@@ -21,6 +21,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -32,7 +33,7 @@ import il.co.amikashkash.aquariumtoolkit.navigation.Screen
 @Composable
 fun HomeScreen(navController: NavController) {
     Scaffold(
-        topBar = { AppBar(navController, title = "Aquarium Tool Kit") },
+        topBar = { AppBar(navController, title = stringResource(R.string.aquarium_tool_kit))},
         containerColor = MaterialTheme.colorScheme.background
     ) { innerPadding ->
 
@@ -55,21 +56,21 @@ fun HomeScreen(navController: NavController) {
             )
             CustomButton(
                 onClick = { navController.navigate(Screen.VOLUME_INPUT.route) },
-                text = "Volume Calculation",
+                text = stringResource(R.string.volume_calculation),
                 modifier = Modifier.padding(bottom = 8.dp,top = 8.dp)
             )
 
             CustomButton(
                 onClick = { navController.navigate(Screen.DOSAGE_AQUA.createDosageAquaRoute(""))
                           },
-                text = "Dosage Calculator",
+                text = stringResource(R.string.dosage_calculator),
                 modifier = Modifier.padding(bottom = 8.dp,top = 8.dp)
                 )
             
             CustomButton(
                 onClick = { navController.navigate(Screen.ADDITIVES.route)
                           },
-                text = "Additives List",
+                text = stringResource(R.string.additives_list),
                 modifier = Modifier.padding(bottom = 8.dp,top = 8.dp)
             )
 

@@ -24,6 +24,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
@@ -52,7 +53,7 @@ fun VolumeInputScreen(
     val focusManager = LocalFocusManager.current
 
     Scaffold(
-        topBar = { AppBar(navController,  title = "Volume Calculator")},
+        topBar = { AppBar(navController,  title = stringResource(R.string.volume_calculator))},
         containerColor = MaterialTheme.colorScheme.background
     ) { innerPadding ->
         LazyColumn (
@@ -77,7 +78,7 @@ fun VolumeInputScreen(
                 OutlinedTextField(
                     value = length,
                     onValueChange = volumeViewModel::onLengthChange,
-                    label = { Text(("Length (cm)")) },
+                    label = { Text((stringResource(R.string.length_cm))) },
                     modifier = Modifier.fillMaxWidth(),
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
                 )
@@ -87,7 +88,7 @@ fun VolumeInputScreen(
                 OutlinedTextField(
                     value = width,
                     onValueChange = volumeViewModel::onWidthChange,
-                    label = { Text("Width (cm)") },
+                    label = { Text(stringResource(R.string.width_cm)) },
                     modifier = Modifier.fillMaxWidth(),
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
                 )
@@ -97,7 +98,7 @@ fun VolumeInputScreen(
                 OutlinedTextField(
                     value = height,
                     onValueChange = volumeViewModel::onHeightChange,
-                    label = { Text("Height (cm)") },
+                    label = { Text(stringResource(R.string.height_cm)) },
                     modifier = Modifier.fillMaxWidth(),
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
                 )
@@ -109,13 +110,13 @@ fun VolumeInputScreen(
                         volumeViewModel.calculateVolume()
                         focusManager.clearFocus()
                     },
-                    text = "Calculate Volume"
+                    text = stringResource(R.string.calculate_volume)
                 )
             }
             item{ Spacer(modifier = Modifier.height(16.dp)) }
             item{
                 Text(
-                    "volume: ${String.format("%.2f", volume)} liters",
+                    stringResource(R.string.volume_liters, String.format("%.2f", volume)),
                     fontSize = 24.sp,
                     fontWeight = FontWeight.Bold
                 )
@@ -125,7 +126,7 @@ fun VolumeInputScreen(
                 CustomButton(onClick = {
                     volumeViewModel.calculateVolume()
                     navController.navigate(Screen.DOSAGE_AQUA.createDosageAquaRoute(volume.toString()))
-                }, text = "Dosage Calculator")
+                }, text = stringResource(R.string.dosage_calculator))
             }
             item { Spacer(modifier = Modifier.height(72.dp)) }
 

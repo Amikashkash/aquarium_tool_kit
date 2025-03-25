@@ -10,24 +10,31 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Send
+import androidx.compose.material.minimumInteractiveComponentSize
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults.cardElevation
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import il.co.amikashkash.aquariumtoolkit.R
 import il.co.amikashkash.aquariumtoolkit.data.Additive
 
 
 @Composable
 fun AdditiveItem(
-    additive: Additive, onUpdateClick: () -> Unit,
-    onFillDosageClick: () -> Unit
+    additive: Additive,
+    onUpdateClick: () -> Unit,
+    onFillDosageClick: () -> Unit,
+    iconColor: Color
 ) {
     Card(
         modifier = Modifier
@@ -43,17 +50,17 @@ fun AdditiveItem(
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Column(modifier = Modifier.weight(1f)) {
                     Row {
-                        Text(text = "Additive Name: ")
+                        Text(text = stringResource(R.string.additive_name))
                         Text(text = additive.name, fontWeight = FontWeight.ExtraBold)
 
                     }
                     Row {
 
-                        Text("Additive Dose:  ")
+                        Text(stringResource(R.string.additive_dose))
                         Text("${additive.addingDose} ml", fontWeight = FontWeight.ExtraBold)
                     }
                     Row {
-                        Text("Dose for volume:  ")
+                        Text(stringResource(R.string.dose_for_volume))
                         Text(
                             "${additive.forVolumeDose} litters",
                             fontWeight = FontWeight.ExtraBold
@@ -70,14 +77,16 @@ fun AdditiveItem(
                     Icon(
                         imageVector = Icons.Filled.Edit,
                         contentDescription = "Update Additive",
-                        modifier = Modifier.size(24.dp)
+                        modifier = Modifier.size(24.dp),
+                        tint = iconColor
                     )
                 }
                 IconButton(onClick = onFillDosageClick) {
                     Icon(
                         imageVector = Icons.Filled.Send,
                         contentDescription = "Fill Dosage",
-                        modifier = Modifier.size(24.dp)
+                        modifier = Modifier.size(24.dp),
+                        tint = iconColor
                     )
                 }
 

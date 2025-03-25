@@ -24,8 +24,10 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import il.co.amikashkash.aquariumtoolkit.R
 import il.co.amikashkash.aquariumtoolkit.elements.AdditiveItem
 import il.co.amikashkash.aquariumtoolkit.elements.AppBar
 import il.co.amikashkash.aquariumtoolkit.navigation.Screen
@@ -38,7 +40,7 @@ fun AdditivesScreen(
     additiveViewModel: AdditiveViewModel
 ) {
     Scaffold(
-        topBar = { AppBar(navController, title = "Additives") },
+        topBar = { AppBar(navController, title = stringResource(R.string.additives)) },
         floatingActionButton = {
             FloatingActionButton(
                 modifier = Modifier.padding(all = 20.dp),
@@ -48,7 +50,7 @@ fun AdditivesScreen(
                     navController.navigate(Screen.ADD_ADDITIVE.route + "/0L")
                 })
             {
-                Icon(imageVector = Icons.Default.Add, contentDescription = "Add")
+                Icon(imageVector = Icons.Default.Add, contentDescription = stringResource(R.string.add))
             }
         },
         containerColor = MaterialTheme.colorScheme.background
@@ -97,8 +99,13 @@ fun AdditivesScreen(
                             },
                             onFillDosageClick = {
                                 val additiveId = additive.additiveId
-                                navController.navigate(Screen.DOSAGE_AQUA.createDosageAquaRouteWithAdditive(additiveId))
-                            }
+                                navController.navigate(
+                                    Screen.DOSAGE_AQUA.createDosageAquaRouteWithAdditive(
+                                        additiveId
+                                    )
+                                )
+                            },
+                            iconColor = MaterialTheme.colorScheme.tertiary
                         )
                     },
                     directions = setOf(DismissDirection.EndToStart)

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ערכת כלי אקווריום</string>
+    <string name="add_additive">הוסף תוסף</string>
+    <string name="update_additive">עדכן תוסף</string>
+    <string name="aquarium_calculation_image">תמונת חישוב אקווריום</string>
+    <string name="name">שם</string>
+    <string name="dosage_per_quantity">מינון לכמות</string>
+    <string name="quantity">כמות</string>
+    <string name="additives">תוספים</string>
+    <string name="add">הוסף</string>
+    <string name="dosage_calculator">מחשבון מינון</string>
+    <string name="aquarium_volume_litters">נפח אקווריום (ליטרים)</string>
+    <string name="dosage_by_instruction_ml">מינון לפי הוראות (מ"ל)</string>
+    <string name="dosage_per_quantity_litters">מינון לכמות (ליטרים)</string>
+    <string name="calculate_dosage">חשב מינון</string>
+    <string name="dosage_milliliter">מינון: %1$s מיליליטר</string>
+    <string name="of_solution_for_this_aquarium">של תמיסה לאקווריום זה</string>
+    <string name="aquarium_tool_kit">ערכת כלי אקווריום</string>
+    <string name="volume_calculation">חישוב נפח</string>
+    <string name="additives_list">רשימת תוספים</string>
+    <string name="volume_calculator">מחשבון נפח</string>
+    <string name="length_cm">אורך (ס"מ)</string>
+    <string name="width_cm">רוחב (ס"מ)</string>
+    <string name="height_cm">גובה (ס"מ)</string>
+    <string name="calculate_volume">חשב נפח</string>
+    <string name="volume_liters">נפח: %1$s ליטרים</string>
+    <string name="additive_name">"שם התוסף: "</string>
+    <string name="additive_dose">"מינון התוסף:  "</string>
+    <string name="dose_for_volume">"מינון לנפח:  "</string>
+</resources>
